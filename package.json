@@ -1,12 +1,7 @@
 {
   "name": "node-red-project",
-  "description": "A Node-RED Project",
   "version": "0.0.1",
-}
-{
-  "name": "node-red-contrib-ethereum",
-  "version": "1.0.0",
-  "description": "A node-RED package containing nodes to interact with ethe ethereum blockchain and smart contracts.",
+  "description": "A node-RED package containing nodes to interact with the ethereum blockchain and smart contracts.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
