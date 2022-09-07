@@ -1,0 +1,53 @@
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - name: node-red
+    init: npm i node-red
+    command: node ./node_modules/node-red/red.js -u .
+  - name: express
+    init: npm i express
+    command: node index.js
+  - name: ganache
+    init: npm i -g ganache truffle
+    command: ganache -m "visit carpet logic blame furnace confirm rebel deliver medal mean illness error"
+  - name: utils
+    init: |
+      echo -e "\033[1;32mNode.js\033[0m"
+      node -e "console.log(require('os').version())"
+      node -e "console.log(require('crypto').createHash('sha3-256').update('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx').digest('hex'))"
+      echo -e "\033[1;33mGitpod\033[0m"
+      (gp ports list 2> /dev/null) || true
+      gp top
+    
+
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - name: Node-RED
+    description: Flow-programming automation
+    port: 1880
+    onOpen: notify
+  - name: Express App
+    description: Simple Express application
+    port: 3000
+    onOpen: notify
+  - name: Ganache
+    description: Blockchain
+    port: 8545
+    onOpen: ignore
+#  - name: Apache Server
+#    description: Static web site
+#    port: 80
+#    onOpen: ignore
+#  - name: Mosquitto
+#    description: MQTT Broker
+#    port: 1883
+#    onOpen: ignore
+#    visibility: public
+#  - name: MongoExpress
+#    description: MongoDB frontend
+#    port: 8081
+#    onOpen: ignore
+#    visibility: public
+#  - name: MongoDB
+#    description: No-SQL Database
+#    port: 27017
+#    onOpen: ignore
