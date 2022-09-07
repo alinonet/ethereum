@@ -1,3 +1,5 @@
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/alinonet/ethereum)
+
 # node-red-contrib-ethereum
 A node palette for interacting with ethereum clients
 
