@@ -12,19 +12,16 @@ tasks:
     init: npm i node-red
     command: node ./node_modules/node-red/red.js -u .
   - name: localtunnel
-    init: npm i localtunnel
+    init: npm i -g localtunnel
     command: lt -p 1880 -s nodered
   - name: express
     init: npm i express
     command: node index.js
   - name: ganache
-    init: | 
-      npm i -g ganache
-    command: |
-      ganache -m "visit carpet logic blame furnace confirm rebel deliver medal mean illness error"
+    init: npm i -g ganache
+    command: ganache -m "visit carpet logic blame furnace confirm rebel deliver medal mean illness error"
   - name: truffle
-    init: | 
-      npm i -g truffle
+    init: npm i -g truffle
     command: |
       gp ports await 8545
       cd truffle-project
