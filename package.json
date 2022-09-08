@@ -9,6 +9,7 @@
   "author": "alinonet",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.1",
     "node-red-contrib-binary": "~0.1.3",
     "node-red-contrib-ethereum": "https://github.com/timweing/node-red-contrib-ethereum",
     "node-red-contrib-https": "~1.0.0",
