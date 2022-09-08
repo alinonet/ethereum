@@ -61,14 +61,16 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
       "name": "deposit",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "function",
+      "payable": true
     },
     {
       "inputs": [
@@ -3195,9 +3197,17 @@
     "name": "solc",
     "version": "0.7.1+commit.f4a555be.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "1662601696527": {
+      "events": {},
+      "links": {},
+      "address": "0xF06Ff5c3348d281De00ce437Df5441e924d98b7C",
+      "transactionHash": "0xb444e43e148970c4179f8d3820d7066b180d550a58c8a5cbc0993d7ec351ffdd"
+    }
+  },
   "schemaVersion": "3.4.9",
-  "updatedAt": "2022-09-08T01:29:18.402Z",
+  "updatedAt": "2022-09-08T01:50:24.111Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

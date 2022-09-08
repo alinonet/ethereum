@@ -1702,7 +1702,6 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "libs": [],
         "x": 550,
         "y": 100,
         "wires": [
@@ -1843,7 +1842,6 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "libs": [],
         "x": 270,
         "y": 180,
         "wires": [

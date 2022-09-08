@@ -33,7 +33,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.7.1+commit.f4a555be\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"decrement\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCount\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"increment\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"reset\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Counter.sol\":\"Counter\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Counter.sol\":{\"keccak256\":\"0x23bf32b05dd68c98571b6cdf99f2321043bac3902c203ad7f9d74df9f2048b2b\",\"urls\":[\"bzz-raw://e7deb26485ecccbc95faf09299b57c8ee1b417f9698489975c1ad11a04503834\",\"dweb:/ipfs/QmctYfTT9EGhK6sLpXUx8B66GRCkjDP3Xvw5AeH1daHJED\"]}},\"version\":1}",
@@ -1165,9 +1166,17 @@
     "name": "solc",
     "version": "0.7.1+commit.f4a555be.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "1662601696527": {
+      "events": {},
+      "links": {},
+      "address": "0xE7A712A499a3fCeCca422059A0017E62aEf79255",
+      "transactionHash": "0xecf0a318b75595d5a60122cd192a582185b81732007b6a04fdc6c35ef367192e"
+    }
+  },
   "schemaVersion": "3.4.9",
-  "updatedAt": "2022-09-08T01:29:18.397Z",
+  "updatedAt": "2022-09-08T01:50:23.674Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},
