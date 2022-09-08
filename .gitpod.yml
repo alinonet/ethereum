@@ -16,7 +16,7 @@ tasks:
       npm i -g truffle
     command: |
       gp ports await 8545
-      cd truffle
+      cd truffle-project
       truffle compile
       truffle migrate
   - name: utils
