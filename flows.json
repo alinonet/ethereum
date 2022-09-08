@@ -56,6 +56,13 @@
         "info": ""
     },
     {
+        "id": "b6312ef0.921c6",
+        "type": "tab",
+        "label": "Test VIESO Nodes",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "2f927fd8.2247",
         "type": "subflow",
         "name": "Get Record Addresses",
@@ -325,7 +332,7 @@
         "id": "10e18cdb.2baf83",
         "type": "ethjs-network",
         "name": "Ganache",
-        "url": "http://127.0.0.1:7545",
+        "url": "http://127.0.0.1:8545",
         "description": "local blockchain"
     },
     {
@@ -410,7 +417,7 @@
         "id": "7f0797ac.d3a188",
         "type": "ethereum-client",
         "name": "Local Ganache",
-        "url": "http://127.0.0.1:8545"
+        "url": "ws://127.0.0.1:8545"
     },
     {
         "id": "b0074f66.562fa",
@@ -486,6 +493,7 @@
         "contractFunction": "getRecordCount",
         "senderAccount": "b7394dd0.1617a",
         "readonlyFunction": true,
+        "weiTransfer": "",
         "onlyEstimateGas": false,
         "useEstimatedGasLimit": true,
         "gasLimit": "",
@@ -578,6 +586,7 @@
         "contractFunction": "getRecordAtIndex",
         "senderAccount": "b7394dd0.1617a",
         "readonlyFunction": true,
+        "weiTransfer": "",
         "onlyEstimateGas": false,
         "useEstimatedGasLimit": true,
         "gasLimit": "",
@@ -4246,6 +4255,7 @@
         "contractFunction": "increment",
         "senderAccount": "769ef044.02b3",
         "readonlyFunction": false,
+        "weiTransfer": "",
         "onlyEstimateGas": false,
         "useEstimatedGasLimit": false,
         "gasLimit": "1000000",
@@ -18099,6 +18109,1690 @@
         "statusType": "auto",
         "x": 680,
         "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "f9821b26.7598d8",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Increment Counter",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "increment",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 290,
+        "y": 620,
+        "wires": [
+            [
+                "9bc9911c.ac06b",
+                "5b67dd80.f53294"
+            ]
+        ]
+    },
+    {
+        "id": "ec6868d5.eee5d8",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Decrement Counter",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "decrement",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 290,
+        "y": 660,
+        "wires": [
+            [
+                "9bc9911c.ac06b",
+                "5b67dd80.f53294"
+            ]
+        ]
+    },
+    {
+        "id": "9bc9911c.ac06b",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Tx Hash",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "1fd2065e.353c9a",
+        "type": "catch",
+        "z": "b6312ef0.921c6",
+        "name": "Catch All",
+        "scope": null,
+        "uncaught": false,
+        "x": 140,
+        "y": 1560,
+        "wires": [
+            [
+                "6fec56c8.f6c268"
+            ]
+        ]
+    },
+    {
+        "id": "6fec56c8.f6c268",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Caught Error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "error",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "af9f3584.3a7c68",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 620,
+        "wires": [
+            [
+                "f9821b26.7598d8"
+            ]
+        ]
+    },
+    {
+        "id": "f71c6f81.11eb8",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 660,
+        "wires": [
+            [
+                "ec6868d5.eee5d8"
+            ]
+        ]
+    },
+    {
+        "id": "5aa62a04.f012c4",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 520,
+        "wires": [
+            [
+                "72c9ed3e.fde984"
+            ]
+        ]
+    },
+    {
+        "id": "b7901a34.9c82d8",
+        "type": "comment",
+        "z": "b6312ef0.921c6",
+        "name": "Error Handling",
+        "info": "Notice how the VISEO-Node only writes a warning to the debug output. This cannot be catched by the catch node.",
+        "x": 130,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "3fb3e09d.d60e",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Reset Counter",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "reset",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 280,
+        "y": 700,
+        "wires": [
+            [
+                "9bc9911c.ac06b",
+                "5b67dd80.f53294"
+            ]
+        ]
+    },
+    {
+        "id": "1a90b2a1.6e306d",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 700,
+        "wires": [
+            [
+                "3fb3e09d.d60e"
+            ]
+        ]
+    },
+    {
+        "id": "3b073c3d.0df1e4",
+        "type": "comment",
+        "z": "b6312ef0.921c6",
+        "name": "Contract call with transaction. Wait for Tx to be mined",
+        "info": "These calls wait for the contract call transaction to me minded before passing the message with the tx hash on to the next node.\n\nTurn off the option 'Automine' in Ganache to see the difference between this and not waiting for the tx to be mined.",
+        "x": 260,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "f5f473a8.d1e77",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Increment Counter",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": false,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "increment",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 290,
+        "y": 800,
+        "wires": [
+            [
+                "8446c8a6.2be058",
+                "ce4f9c1d.a1827"
+            ]
+        ]
+    },
+    {
+        "id": "236ac3dc.106b4c",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Decrement Counter",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": false,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "decrement",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 290,
+        "y": 840,
+        "wires": [
+            [
+                "8446c8a6.2be058",
+                "ce4f9c1d.a1827"
+            ]
+        ]
+    },
+    {
+        "id": "8446c8a6.2be058",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Tx Hash",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "333fcb28.f3e7f4",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 800,
+        "wires": [
+            [
+                "f5f473a8.d1e77"
+            ]
+        ]
+    },
+    {
+        "id": "5bccd02c.806b7",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 840,
+        "wires": [
+            [
+                "236ac3dc.106b4c"
+            ]
+        ]
+    },
+    {
+        "id": "3fa2d305.51dc1c",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Reset Counter",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": false,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "reset",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 280,
+        "y": 880,
+        "wires": [
+            [
+                "8446c8a6.2be058",
+                "ce4f9c1d.a1827"
+            ]
+        ]
+    },
+    {
+        "id": "85ac8dc3.ffcd1",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 880,
+        "wires": [
+            [
+                "3fa2d305.51dc1c"
+            ]
+        ]
+    },
+    {
+        "id": "6dd469b0.470028",
+        "type": "comment",
+        "z": "b6312ef0.921c6",
+        "name": "Contract call with transaction. Don't wait for Tx to be mined",
+        "info": "These calls DO NOT wait for the contract call transaction to me minded before passing the message with the tx hash on to the next node.\n\nTurn off the option 'Automine' in Ganache to see the difference between this and not waiting for the tx to be mined.",
+        "x": 270,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "7beed927.b0a3f8",
+        "type": "comment",
+        "z": "b6312ef0.921c6",
+        "name": "Readonly contract call without Tx",
+        "info": "",
+        "x": 190,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "b764e143.0550b",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "New Count",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.0",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a000d2d9.7518d",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "New Count",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.0",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "a44f796a.bc4c58",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Increment Counter",
+        "network": "10e18cdb.2baf83",
+        "wallet": "34550833.c5f2e8",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "increment",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 290,
+        "y": 1000,
+        "wires": [
+            [
+                "4054ea76.4060b4",
+                "873b1224.9ef72"
+            ]
+        ]
+    },
+    {
+        "id": "dedbf4b0.67a4b8",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Decrement Counter",
+        "network": "10e18cdb.2baf83",
+        "wallet": "34550833.c5f2e8",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "decrement",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 290,
+        "y": 1040,
+        "wires": [
+            [
+                "4054ea76.4060b4",
+                "873b1224.9ef72"
+            ]
+        ]
+    },
+    {
+        "id": "4054ea76.4060b4",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Tx Hash",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "fb3372cb.7d134",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 1000,
+        "wires": [
+            [
+                "a44f796a.bc4c58"
+            ]
+        ]
+    },
+    {
+        "id": "b1481e14.ae6e2",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 1040,
+        "wires": [
+            [
+                "dedbf4b0.67a4b8"
+            ]
+        ]
+    },
+    {
+        "id": "a93141c6.eaded",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Reset Counter",
+        "network": "10e18cdb.2baf83",
+        "wallet": "34550833.c5f2e8",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "reset",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 280,
+        "y": 1080,
+        "wires": [
+            [
+                "4054ea76.4060b4",
+                "873b1224.9ef72"
+            ]
+        ]
+    },
+    {
+        "id": "f42399d8.c17098",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 1080,
+        "wires": [
+            [
+                "a93141c6.eaded"
+            ]
+        ]
+    },
+    {
+        "id": "d5992d11.421e4",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "New Count",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.0",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "140d842.f3b7e7c",
+        "type": "comment",
+        "z": "b6312ef0.921c6",
+        "name": "Use account that is not managed by the ganache node",
+        "info": "These calls use an account that is not managed by the ganache node.\n\nFor the VISEO-Nodes it makes no difference if Ganache manges an account or not. VISEO-Nodes always sign the transaction themselfes and therefore need the private key.\n\nNotice how you won't be able to submit multiple transactions for the next block when the option 'Automine' is turned off in Ganache. This means the VISEO-Node does not manage the account nonce properly when submitting transactions.\n\nImportant: Make sure account 11 has some Ether to pay for the transaction before trying this out. Use the ether transfer below.",
+        "x": 260,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "acf7ecf0.afefa",
+        "type": "comment",
+        "z": "b6312ef0.921c6",
+        "name": "Contract call with parameters",
+        "info": "",
+        "x": 180,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "b099003a.ac2bf",
+        "type": "comment",
+        "z": "b6312ef0.921c6",
+        "name": "Read Ether balance",
+        "info": "Notice how you can either set the address statically in the node configuration or dynamically in the input message.",
+        "x": 150,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "862de734.ffddd8",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Balance (Account 2)",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "0x037bB274D93f4Db069AC961d653a807E4E7c5A48",
+        "addressType": "str",
+        "ether": "",
+        "etherType": "str",
+        "contract": "",
+        "apiCall": "",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "15ce7a47.df3de6"
+            ]
+        ]
+    },
+    {
+        "id": "15ce7a47.df3de6",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Balance Account 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "42a779a3.46b2c8",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "862de734.ffddd8"
+            ]
+        ]
+    },
+    {
+        "id": "6e88fc74.551f64",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Balance",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "account",
+        "addressType": "msg",
+        "ether": "",
+        "etherType": "str",
+        "contract": "",
+        "apiCall": "",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 280,
+        "y": 260,
+        "wires": [
+            [
+                "2a57820d.c5cc1e"
+            ]
+        ]
+    },
+    {
+        "id": "2a57820d.c5cc1e",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Balance Account 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d9312f3c.03b51",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Account 3",
+        "props": [
+            {
+                "p": "account",
+                "v": "0xd16E92811948E986ee26c7759f7DA53BAa8DD980",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 260,
+        "wires": [
+            [
+                "6e88fc74.551f64"
+            ]
+        ]
+    },
+    {
+        "id": "60867f28.60d0a",
+        "type": "comment",
+        "z": "b6312ef0.921c6",
+        "name": "Send Ether",
+        "info": "Notice how you can either set the receiver address and wei amount statically in the node configuration or dynamically in the input message.",
+        "x": 120,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "8951ac62.43efc",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Send (10 Ether from Account 2 to Account 3)",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "0xd16E92811948E986ee26c7759f7DA53BAa8DD980",
+        "addressType": "str",
+        "ether": "10000000000000000000",
+        "etherType": "str",
+        "contract": "",
+        "apiCall": "",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 370,
+        "y": 360,
+        "wires": [
+            [
+                "8ca7bacb.5392c8"
+            ]
+        ]
+    },
+    {
+        "id": "8ca7bacb.5392c8",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Tx Hash",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "c848213.d8a83e",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "8951ac62.43efc"
+            ]
+        ]
+    },
+    {
+        "id": "50b510b.4b482f",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Send (from Account 3)",
+        "network": "10e18cdb.2baf83",
+        "wallet": "f0e8cc17.5a345",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "toAddress",
+        "addressType": "msg",
+        "ether": "amountWei",
+        "etherType": "msg",
+        "contract": "",
+        "apiCall": "",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 400,
+        "y": 400,
+        "wires": [
+            [
+                "d015c2.cc324a4"
+            ]
+        ]
+    },
+    {
+        "id": "e53db5d9.7f8648",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "10 Ether to Account 2",
+        "props": [
+            {
+                "p": "toAddress",
+                "v": "0x037bB274D93f4Db069AC961d653a807E4E7c5A48",
+                "vt": "str"
+            },
+            {
+                "p": "amountWei",
+                "v": "10000000000000000000",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 180,
+        "y": 400,
+        "wires": [
+            [
+                "50b510b.4b482f"
+            ]
+        ]
+    },
+    {
+        "id": "d015c2.cc324a4",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Tx Hash",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "9b9fc8fd.489458",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Get Int",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": false,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "bc9ca318.baa7",
+        "apiCall": "getMyInt",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 490,
+        "y": 1400,
+        "wires": [
+            [
+                "18fd3e7b.2d98c2"
+            ]
+        ]
+    },
+    {
+        "id": "5b67dd80.f53294",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Get Count",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": false,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "getCount",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 550,
+        "y": 660,
+        "wires": [
+            [
+                "b764e143.0550b"
+            ]
+        ]
+    },
+    {
+        "id": "ce4f9c1d.a1827",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Get Count",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": false,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "getCount",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 550,
+        "y": 840,
+        "wires": [
+            [
+                "a000d2d9.7518d"
+            ]
+        ]
+    },
+    {
+        "id": "873b1224.9ef72",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Get Count",
+        "network": "10e18cdb.2baf83",
+        "wallet": "34550833.c5f2e8",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": false,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "getCount",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 550,
+        "y": 1040,
+        "wires": [
+            [
+                "d5992d11.421e4"
+            ]
+        ]
+    },
+    {
+        "id": "6acad048.122af",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Count",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.0",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "72c9ed3e.fde984",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Get Count",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": false,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "b0c4f329.30063",
+        "apiCall": "getCount",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 270,
+        "y": 520,
+        "wires": [
+            [
+                "6acad048.122af"
+            ]
+        ]
+    },
+    {
+        "id": "5050b691.56bf28",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Send (1 ETH from Account 2 to Account 11)",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "0xE67Dc87446e916379Fb929B7A0A46Ec4459122c0",
+        "addressType": "str",
+        "ether": "1000000000000000000",
+        "etherType": "str",
+        "contract": "",
+        "apiCall": "",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 370,
+        "y": 1220,
+        "wires": [
+            [
+                "d99cbff6.324d4"
+            ]
+        ]
+    },
+    {
+        "id": "d99cbff6.324d4",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Tx Hash",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "a0e0508.7a835b",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 1220,
+        "wires": [
+            [
+                "5050b691.56bf28"
+            ]
+        ]
+    },
+    {
+        "id": "8af6a0b3.3df07",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Balance (Account 11)",
+        "network": "10e18cdb.2baf83",
+        "wallet": "34550833.c5f2e8",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "0xE67Dc87446e916379Fb929B7A0A46Ec4459122c0",
+        "addressType": "str",
+        "ether": "",
+        "etherType": "str",
+        "contract": "",
+        "apiCall": "",
+        "unit": "",
+        "param1": "",
+        "param2": "",
+        "param3": "",
+        "x": 300,
+        "y": 1180,
+        "wires": [
+            [
+                "9292b025.4218e"
+            ]
+        ]
+    },
+    {
+        "id": "9292b025.4218e",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Balance Account 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "6f5b0cef.0ec5c4",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 1180,
+        "wires": [
+            [
+                "8af6a0b3.3df07"
+            ]
+        ]
+    },
+    {
+        "id": "4a856b6f.4ecd44",
+        "type": "comment",
+        "z": "b6312ef0.921c6",
+        "name": "Fund Account 11 with some Ether if needed",
+        "info": "",
+        "x": 220,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "18fd3e7b.2d98c2",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "New Int",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.0",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "577ff20a.b79c4c",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Set Int = 0",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "bc9ca318.baa7",
+        "apiCall": "setMyInt",
+        "unit": "",
+        "param1": "0",
+        "param2": "",
+        "param3": "",
+        "x": 270,
+        "y": 1360,
+        "wires": [
+            [
+                "b0d2b9fe.efd1f8",
+                "9b9fc8fd.489458"
+            ]
+        ]
+    },
+    {
+        "id": "b0d2b9fe.efd1f8",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Tx Hash",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "80eff0cf.04a19",
+        "type": "comment",
+        "z": "b6312ef0.921c6",
+        "name": "!!! Contract calls won't work with abi  for solidity >= v0.5.0",
+        "info": "",
+        "x": 550,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "20273621.14a71a",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "myInt",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 1360,
+        "wires": [
+            [
+                "577ff20a.b79c4c"
+            ]
+        ]
+    },
+    {
+        "id": "2ac87f14.d70aa",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Set Int = 100",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "bc9ca318.baa7",
+        "apiCall": "setMyInt",
+        "unit": "",
+        "param1": "100",
+        "param2": "",
+        "param3": "",
+        "x": 270,
+        "y": 1400,
+        "wires": [
+            [
+                "b0d2b9fe.efd1f8",
+                "9b9fc8fd.489458"
+            ]
+        ]
+    },
+    {
+        "id": "a7235f5b.f102c",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "myInt",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 1400,
+        "wires": [
+            [
+                "2ac87f14.d70aa"
+            ]
+        ]
+    },
+    {
+        "id": "fcb1305.31200d",
+        "type": "ethjs-transaction",
+        "z": "b6312ef0.921c6",
+        "name": "Set Int = \"Hello World\"",
+        "network": "10e18cdb.2baf83",
+        "wallet": "c04fd6b7.8b3a78",
+        "output": "payload",
+        "outputType": "msg",
+        "wait": true,
+        "address": "payload",
+        "addressType": "msg",
+        "ether": "payload",
+        "etherType": "msg",
+        "contract": "bc9ca318.baa7",
+        "apiCall": "setMyInt",
+        "unit": "",
+        "param1": "Hello World",
+        "param2": "",
+        "param3": "",
+        "x": 300,
+        "y": 1520,
+        "wires": [
+            [
+                "a1bdb7f6.90ade8"
+            ]
+        ]
+    },
+    {
+        "id": "a1bdb7f6.90ade8",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "Tx Hash",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "76ff5e05.d10c4",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "myInt",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 1520,
+        "wires": [
+            [
+                "fcb1305.31200d"
+            ]
+        ]
+    },
+    {
+        "id": "ed19c876.842ea8",
+        "type": "ethjs-account",
+        "z": "b6312ef0.921c6",
+        "name": "Create Account",
+        "input": "payload",
+        "output": "payload",
+        "inputType": "msg",
+        "outputType": "msg",
+        "x": 280,
+        "y": 100,
+        "wires": [
+            [
+                "dcb8b8.7686f748"
+            ]
+        ]
+    },
+    {
+        "id": "b67eec82.08251",
+        "type": "inject",
+        "z": "b6312ef0.921c6",
+        "name": "Entropy",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla",
+        "payloadType": "str",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "ed19c876.842ea8"
+            ]
+        ]
+    },
+    {
+        "id": "dcb8b8.7686f748",
+        "type": "debug",
+        "z": "b6312ef0.921c6",
+        "name": "New Account",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9ea3e250.65368",
+        "type": "comment",
+        "z": "b6312ef0.921c6",
+        "name": "Create a new Account",
+        "info": "",
+        "x": 160,
+        "y": 60,
         "wires": []
     }
 ]
