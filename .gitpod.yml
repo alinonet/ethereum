@@ -9,9 +9,13 @@ tasks:
   - name: ganache
     init: | 
       npm i -g ganache
-      npm i -g truffle
-      ganache -m "visit carpet logic blame furnace confirm rebel deliver medal mean illness error"
     command: |
+      ganache -m "visit carpet logic blame furnace confirm rebel deliver medal mean illness error"
+  - name: truffle
+    init: | 
+      npm i -g truffle
+    command: |
+      gp ports await 8545
       cd truffle
       truffle compile
       truffle migrate
@@ -23,7 +27,6 @@ tasks:
       echo -e "\033[1;33mGitpod\033[0m"
       (gp ports list 2> /dev/null) || true
       gp top
-    
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
